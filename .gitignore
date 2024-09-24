@@ -1,0 +1,54 @@
+# Node.js dependências
+/node_modules
+/.pnp
+.pnp.js
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Diretórios de ambiente
+.env
+
+# Diretórios de banco de dados
+/coverage
+/.nyc_output
+
+# Arquivos de build
+dist
+build
+.tmp
+
+# Cache
+.cache
+.npm
+
+# Logs do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de editor de texto/IDE
+.vscode/
+.idea/
+
+# Configuração do Docker (se estiver usando Docker)
+docker-compose.override.yml
+
+# Arquivos gerados pelo sistema operacional
+*.swp
+*.swo
+
+# Relatórios de erro
+*.pid
+*.seed
+*.pid.lock
+
+# Arquivos de Testes
+/jest
+
+# Arquivos temporários do processo de desenvolvimento
+*.local
+*.env.local

@@ -1,0 +1,489 @@
+{
+	"info": {
+		"_postman_id": "bc422cab-60a2-42b2-9489-4020c84e92cb",
+		"name": "desafio-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19237393",
+		"_collection_link": "https://dark-capsule-583958.postman.co/workspace/Pessoal~7f3cf750-035d-45a6-a9ad-05f2122b708b/collection/19237393-bc422cab-60a2-42b2-9489-4020c84e92cb?action=share&source=collection_link&creator=19237393"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Luiz Souza\",\r\n    \"dataNascimento\": \"15-08-1995\",\r\n    \"email\": \"luiz@example.com\",\r\n    \"senha\": \"senha123\",\r\n    \"confirmarSenha\": \"senha123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-document-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"66e3775799d4a8566aebf661\",\r\n    \"documentId\": \"66e3777a99d4a8566aebf676\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/users/add-document",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"add-document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// response \r",
+									"var res = pm.response.json();\r",
+									"\r",
+									"// set variable\r",
+									"pm.globals.set('access_token', res.token)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"luiz@example.com\",\r\n    \"senha\": \"senha123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZTI1NzI1MzRkYWJkNTJhOWJjMGI0ZCIsImlhdCI6MTcyNjEwOTQ4OSwiZXhwIjoxNzI2MTEzMDg5fQ.xf43Bf6tb6Y-gwjKxViw3ChMweg19vw9T_-xUuOvRY0",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-users-by-id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZTI1NzI1MzRkYWJkNTJhOWJjMGI0ZCIsImlhdCI6MTcyNjEwOTQ4OSwiZXhwIjoxNzI2MTEzMDg5fQ.xf43Bf6tb6Y-gwjKxViw3ChMweg19vw9T_-xUuOvRY0",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/users/66e3770e99d4a8566aebf64c",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"66e3770e99d4a8566aebf64c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZTI1NzI1MzRkYWJkNTJhOWJjMGI0ZCIsImlhdCI6MTcyNjEwOTQ4OSwiZXhwIjoxNzI2MTEzMDg5fQ.xf43Bf6tb6Y-gwjKxViw3ChMweg19vw9T_-xUuOvRY0",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/users/66e3775799d4a8566aebf661",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"66e3775799d4a8566aebf661"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZTI1NzI1MzRkYWJkNTJhOWJjMGI0ZCIsImlhdCI6MTcyNjEwOTQ4OSwiZXhwIjoxNzI2MTEzMDg5fQ.xf43Bf6tb6Y-gwjKxViw3ChMweg19vw9T_-xUuOvRY0",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Luiz Souza Atualizado\",\r\n    \"dataNascimento\": \"15-08-1995\",\r\n    \"email\": \"luiz_souza@example.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/users/66e3770e99d4a8566aebf64c",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"66e3770e99d4a8566aebf64c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "document",
+			"item": [
+				{
+					"name": "create-documents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Documento 1\",\r\n    \"url\": \"http://exemplo.com/documento1\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/documents",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-documents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Documento Atualizado\",\r\n    \"url\": \"http://exemplo.com/documento-atualizado\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/documents/66e3775e99d4a8566aebf666",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"documents",
+								"66e3775e99d4a8566aebf666"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-documents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Documento 1 - Atualizado\",\r\n  \"url\": \"http://example.com/document1-updated\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/documents/66e3775e99d4a8566aebf666",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"documents",
+								"66e3775e99d4a8566aebf666"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-documents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Documento 1\",\r\n  \"url\": \"http://example.com/document1\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/documents",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-documents-by-id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Documento 1\",\r\n  \"url\": \"http://example.com/document1\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/documents/66e3775e99d4a8566aebf666",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"documents",
+								"66e3775e99d4a8566aebf666"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
